@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
+public class SwagLabsSuClickableItemTest extends SwagLabsBaseTest {
 
     @BeforeMethod
     public void setUpPage (){
@@ -18,7 +18,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 10)
-    public void clickOnItemOne () {
+    public void clickableItemOne () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemOne();
 
@@ -29,7 +29,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 20)
-    public void clickOnItemTwo () {
+    public void clickableItemTwo () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemTwo();
 
@@ -40,7 +40,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 30)
-    public void clickOnItemThree () {
+    public void clickableItemThree () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemThree();
 
@@ -51,7 +51,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 40)
-    public void clickOnItemFour () {
+    public void clickableItemFour () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemFour();
 
@@ -62,7 +62,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 50)
-    public void clickOnItemFive () {
+    public void clickableItemFive () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemFive();
 
@@ -73,7 +73,7 @@ public class SwagLabsItemsPageTest extends SwagLabsBaseTest {
     }
 
     @Test (priority = 60)
-    public void clickOnItemSix () {
+    public void clickableItemSix () {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemSix();
 
