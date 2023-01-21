@@ -4,10 +4,9 @@ import SwagLabs.SwagLabsBase.SwagLabsBaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SwagLabsShoppingCart extends SwagLabsBaseTest {
-    public SwagLabsShoppingCart() {
+public class SwagLabsShoppingCartPage extends SwagLabsBaseTest {
+    public SwagLabsShoppingCartPage() {
         PageFactory.initElements(driver, this);
     }
 

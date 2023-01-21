@@ -1,7 +1,8 @@
 package SwagLabs.SwagLabsBase;
 
-import SwagLabs.SwagLabsPages.SwagLabsShoppingCart;
-import SwagLabs.SwagLabsPages.SwagLabsMenuElements;
+import SwagLabs.SwagLabsPages.SwagLabsItemsPage;
+import SwagLabs.SwagLabsPages.SwagLabsShoppingCartPage;
+import SwagLabs.SwagLabsPages.SwagLabsMenuElementsPage;
 import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +21,17 @@ public class SwagLabsBaseTest {
     public ExcelReader excelReader;
     public String loginPageUrl;
 
+    String validUsername;
+    String validPassword;
+
     public SwagLabsLoginPage swagLabsLoginPage;
 
-    public SwagLabsShoppingCart swagLabsShoppingCart;
+    public SwagLabsShoppingCartPage swagLabsShoppingCartPage;
 
-    public SwagLabsMenuElements swagLabsMenuElements;
+    public SwagLabsMenuElementsPage swagLabsMenuElementsPage;
+
+    public SwagLabsItemsPage swagLabsItemsPage;
+
 
     @BeforeClass
     public void setUp() throws IOException {
@@ -33,6 +40,14 @@ public class SwagLabsBaseTest {
         wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         excelReader = new ExcelReader("src/test/java/SwagLabs/TestData.xlsx");
         loginPageUrl = excelReader.getStringData("URL", 1,0);
+    }
+
+    public void loginDirectToHomePage (){
+        driver.manage().window().maximize();
+        driver.navigate().to(loginPageUrl);
+        validUsername = excelReader.getStringData("Login", 1 , 0);
+        validPassword = excelReader.getStringData("Login", 1 , 1);
+        swagLabsLoginPage.tryLogin(validUsername, validPassword);
     }
 
     public boolean isDisplayed (WebElement element){

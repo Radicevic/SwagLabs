@@ -1,7 +1,7 @@
 package SwagLabs.SwagLabsTests;
 
 import SwagLabs.SwagLabsBase.SwagLabsBaseTest;
-import SwagLabs.SwagLabsPages.SwagLabsMenuElements;
+import SwagLabs.SwagLabsPages.SwagLabsMenuElementsPage;
 import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -14,7 +14,7 @@ public class SwagLabsLoginTest extends SwagLabsBaseTest {
         driver.manage().window().maximize();
         driver.navigate().to(loginPageUrl);
         swagLabsLoginPage = new SwagLabsLoginPage();
-        swagLabsMenuElements = new SwagLabsMenuElements();
+        swagLabsMenuElementsPage = new SwagLabsMenuElementsPage();
     }
 
     @Test (priority = 10)
@@ -27,9 +27,9 @@ public class SwagLabsLoginTest extends SwagLabsBaseTest {
         Assert.assertFalse(isDisplayed(swagLabsLoginPage.LoginButton));
         String expectedUrl = excelReader.getStringData("URL", 1, 1 );
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
-        swagLabsMenuElements.clickOnManuButton();
-        waitElementClickable(swagLabsMenuElements.LogoutButton);
-        swagLabsMenuElements.clickOnLogoutButton();
+        swagLabsMenuElementsPage.clickOnManuButton();
+        waitElementClickable(swagLabsMenuElementsPage.LogoutButton);
+        swagLabsMenuElementsPage.clickOnLogoutButton();
         }
     }
 
