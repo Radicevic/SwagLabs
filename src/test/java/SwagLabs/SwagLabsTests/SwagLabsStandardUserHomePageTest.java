@@ -19,7 +19,7 @@ public class SwagLabsStandardUserHomePageTest extends SwagLabsBaseTest {
         swagLabsShoppingCart = new SwagLabsShoppingCart();
     }
 
-    @Test(priority = 10)
+    @Test(priority = 10) //blblblb
     public void standardUserHomePageManuButton () {
 
         String validUsername = excelReader.getStringData("Login", 1 , 0);
@@ -32,6 +32,7 @@ public class SwagLabsStandardUserHomePageTest extends SwagLabsBaseTest {
         Assert.assertTrue(swagLabsSidebarHomePage.AllItemsButton.isDisplayed());
         Assert.assertTrue(swagLabsSidebarHomePage.AboutButton.isDisplayed());
         swagLabsSidebarHomePage.clickOnCloseButton();
+        swagLabsShoppingCart.clickOnShoppingCart();
         swagLabsShoppingCart.clickOnShoppingCart();
     }
 }
