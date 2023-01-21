@@ -4,14 +4,21 @@ import SwagLabs.SwagLabsBase.SwagLabsBaseTest;
 import SwagLabs.SwagLabsPages.SwagLabsShoppingCartPage;
 import SwagLabs.SwagLabsPages.SwagLabsMenuElementsPage;
 import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
 
     @BeforeMethod
     public void setUpPage(){
+        driver =new ChromeDriver();
+        wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.navigate().to(loginPageUrl);
         swagLabsLoginPage = new SwagLabsLoginPage();
@@ -32,7 +39,7 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         Assert.assertTrue(swagLabsMenuElementsPage.AllItemsButton.isDisplayed());
         Assert.assertTrue(swagLabsMenuElementsPage.AboutButton.isDisplayed());
         swagLabsMenuElementsPage.clickOnCloseButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
     }
 
     @Test(priority = 20)  // dovrsi
@@ -44,6 +51,7 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
 
         swagLabsMenuElementsPage.clickOnManuButton();
         waitElementVisible(swagLabsMenuElementsPage.AllItemsButton);
+        swagLabsMenuElementsPage.clickOnAllItemsButton();
     }
 
     @Test(priority = 30)
@@ -87,6 +95,11 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         swagLabsMenuElementsPage.clickOnManuButton();
         waitElementVisible(swagLabsMenuElementsPage.ResetAppStateButton);
         swagLabsMenuElementsPage.clickOnResetAppStateButton();
+    }
 
+    @AfterMethod
+    public void tearDown(){
+        driver.manage().deleteAllCookies();
+        driver.quit();
     }
 }

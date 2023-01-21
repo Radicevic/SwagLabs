@@ -31,7 +31,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemOne();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Backpack");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
 
@@ -42,7 +42,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemTwo();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Bike Light");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
     }
@@ -52,7 +52,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemThree();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Bolt T-Shirt");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
     }
@@ -62,7 +62,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemFour();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Fleece Jacket");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
     }
@@ -72,7 +72,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemFive();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Onesie");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
     }
@@ -82,7 +82,7 @@ public class SwagLabsSuClickOnItemAndAddToCart extends SwagLabsBaseTest {
         loginDirectToHomePage();
         swagLabsItemsPage.clickOnItemSix();
         swagLabsItemsPage.clickOnAddButton();
-        swagLabsShoppingCartPage.clickOnShoppingCart();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Test.allTheThings() T-Shirt (Red)");
         Assert.assertEquals(swagLabsShoppingCartPage.ShoppingCart.getText(), "1");
     }

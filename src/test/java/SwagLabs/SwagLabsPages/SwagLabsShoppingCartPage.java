@@ -14,15 +14,26 @@ public class SwagLabsShoppingCartPage extends SwagLabsBaseTest {
     public WebElement ShoppingCart;
 
     @FindBy ( className = "inventory_item_name")
-    public WebElement NameOfItemInCart;
+    public WebElement NameOfItemInCart;   //When we click on item and then add to cart
+
+    @FindBy ( id = "continue-shopping")
+    public WebElement ContinueToShoppingButton;
 
     //------------------------------------------------
 
-    public void clickOnShoppingCart (){
+    public void clickOnShoppingCartButton (){
         ShoppingCart.click();
     }
     public  String getNameOfItemInCart (){
-        return NameOfItemInCart.getText();
+        return NameOfItemInCart.getText();   //When we click on item and then add to cart
+    }
+
+    public  String getNumberOfItemSInCart (){
+        return ShoppingCart.getText();   //Number of items in cart
+    }
+
+    public void clickToContinueToShoppingButton (){
+        ContinueToShoppingButton.click();
     }
 }
 
