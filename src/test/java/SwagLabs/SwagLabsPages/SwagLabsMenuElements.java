@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SwagLabsSidebarHomePage extends SwagLabsBaseTest {
-    public SwagLabsSidebarHomePage() {
+public class SwagLabsMenuElements extends SwagLabsBaseTest {
+    public SwagLabsMenuElements() {
         PageFactory.initElements(driver, this);
     }
 

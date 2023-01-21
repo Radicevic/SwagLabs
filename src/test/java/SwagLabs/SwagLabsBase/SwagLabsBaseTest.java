@@ -1,7 +1,7 @@
 package SwagLabs.SwagLabsBase;
 
 import SwagLabs.SwagLabsPages.SwagLabsShoppingCart;
-import SwagLabs.SwagLabsPages.SwagLabsSidebarHomePage;
+import SwagLabs.SwagLabsPages.SwagLabsMenuElements;
 import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class SwagLabsBaseTest {
 
     public SwagLabsShoppingCart swagLabsShoppingCart;
 
-    public SwagLabsSidebarHomePage swagLabsSidebarHomePage;
+    public SwagLabsMenuElements swagLabsMenuElements;
 
     @BeforeClass
     public void setUp() throws IOException {
