@@ -36,15 +36,13 @@ public class SwagLabsBaseTest {
     @BeforeClass
     public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        driver = new ChromeDriver();
+//        wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         excelReader = new ExcelReader("src/test/java/SwagLabs/TestData.xlsx");
         loginPageUrl = excelReader.getStringData("URL", 1,0);
     }
 
     public void loginDirectToHomePage (){
-        driver.manage().window().maximize();
-        driver.navigate().to(loginPageUrl);
         validUsername = excelReader.getStringData("Login", 1 , 0);
         validPassword = excelReader.getStringData("Login", 1 , 1);
         swagLabsLoginPage.tryLogin(validUsername, validPassword);
