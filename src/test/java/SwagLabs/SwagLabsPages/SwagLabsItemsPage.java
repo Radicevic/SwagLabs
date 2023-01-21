@@ -21,6 +21,7 @@ public class SwagLabsItemsPage extends SwagLabsBaseTest {
     @FindBy ( css = "div[class = 'inventory_details_name large_size']")
     public WebElement NameOfItem;
 
+
     //--------------------------------------------
 
     public void clickOnAddButton (){
