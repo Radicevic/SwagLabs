@@ -1,6 +1,7 @@
 package SwagLabs.SwagLabsTests;
 
 import SwagLabs.SwagLabsBase.SwagLabsBaseTest;
+import SwagLabs.SwagLabsPages.SwagLabsItemsPage;
 import SwagLabs.SwagLabsPages.SwagLabsShoppingCartPage;
 import SwagLabs.SwagLabsPages.SwagLabsMenuElementsPage;
 import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
@@ -21,6 +22,7 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.navigate().to(loginPageUrl);
+        swagLabsItemsPage = new SwagLabsItemsPage();
         swagLabsLoginPage = new SwagLabsLoginPage();
         swagLabsMenuElementsPage = new SwagLabsMenuElementsPage();
         swagLabsShoppingCartPage = new SwagLabsShoppingCartPage();
@@ -42,16 +44,19 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
     }
 
-    @Test(priority = 20)  // dovrsi
+    @Test(priority = 20)
     public void standardUserAllItemsButton () {
 
         String validUsername = excelReader.getStringData("Login", 1 , 0);
         String validPassword = excelReader.getStringData("Login", 1 , 1);
         swagLabsLoginPage.tryLogin(validUsername, validPassword);
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
 
         swagLabsMenuElementsPage.clickOnManuButton();
         waitElementVisible(swagLabsMenuElementsPage.AllItemsButton);
         swagLabsMenuElementsPage.clickOnAllItemsButton();
+        String expectedUrl = excelReader.getStringData("URL", 1, 1);
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
     @Test(priority = 30)
@@ -86,15 +91,21 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
     }
 
     @Test(priority = 50)
-    public void standardUserResetAppStateButton () { //dovrsi
+    public void standardUserResetAppStateButton () {
 
         String validUsername = excelReader.getStringData("Login", 1 , 0);
         String validPassword = excelReader.getStringData("Login", 1 , 1);
         swagLabsLoginPage.tryLogin(validUsername, validPassword);
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+
+        swagLabsItemsPage.addFirstItemFromHomePage();
+        swagLabsItemsPage.addSecondItemFromHomePage();
+        swagLabsItemsPage.addThirdItemFromHomePage();
 
         swagLabsMenuElementsPage.clickOnManuButton();
         waitElementVisible(swagLabsMenuElementsPage.ResetAppStateButton);
         swagLabsMenuElementsPage.clickOnResetAppStateButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
     }
 
     @AfterMethod

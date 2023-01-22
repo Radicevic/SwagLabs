@@ -17,10 +17,11 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
 
     @BeforeMethod
     public void setUpPage (){
-        driver = new ChromeDriver();
+        driver =new ChromeDriver();
         wdwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.navigate().to(loginPageUrl);
+
         swagLabsLoginPage = new SwagLabsLoginPage();
         swagLabsItemsPage = new SwagLabsItemsPage();
         swagLabsShoppingCartPage = new SwagLabsShoppingCartPage();
@@ -29,6 +30,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 10)
     public void addFirstItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addFirstItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(), "Sauce Labs Backpack");
@@ -38,6 +43,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 20)
     public void addSecondItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addSecondItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(),"Sauce Labs Bike Light");
@@ -47,6 +56,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 30)
     public void addThirdItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addThirdItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(),"Sauce Labs Bolt T-Shirt");
@@ -56,6 +69,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 40)
     public void addFourthItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addFourthItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(),"Sauce Labs Fleece Jacket");
@@ -65,6 +82,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 50)
     public void addFifthItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addFifthItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(),"Sauce Labs Onesie");
@@ -74,6 +95,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
     @Test (priority = 60)
     public void addSixthItemToCart (){
         loginDirectToHomePage();
+        swagLabsShoppingCartPage.clickOnShoppingCartButton();
+        Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
+        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
+
         swagLabsItemsPage.addSixthItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
         Assert.assertEquals(swagLabsShoppingCartPage.getNameOfItemInCart(),"Test.allTheThings() T-Shirt (Red)");
@@ -89,25 +114,10 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
         swagLabsShoppingCartPage.clickToContinueToShoppingButton();
 
         swagLabsItemsPage.addFirstItemFromHomePage();
-        swagLabsShoppingCartPage.clickOnShoppingCartButton();
-        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
-
         swagLabsItemsPage.addSecondItemFromHomePage();
-        swagLabsShoppingCartPage.clickOnShoppingCartButton();
-        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
-
         swagLabsItemsPage.addThirdItemFromHomePage();
-        swagLabsShoppingCartPage.clickOnShoppingCartButton();
-        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
-
         swagLabsItemsPage.addFourthItemFromHomePage();
-        swagLabsShoppingCartPage.clickOnShoppingCartButton();
-        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
-
         swagLabsItemsPage.addFifthItemFromHomePage();
-        swagLabsShoppingCartPage.clickOnShoppingCartButton();
-        swagLabsShoppingCartPage.clickToContinueToShoppingButton();
-
         swagLabsItemsPage.addSixthItemFromHomePage();
         swagLabsShoppingCartPage.clickOnShoppingCartButton();
 
@@ -122,6 +132,7 @@ public class SwagLabsSuAddItemToCart extends SwagLabsBaseTest {
 
     @AfterMethod
     public void tearDown (){
+        driver.manage().deleteAllCookies();
         driver.quit();
     }
 }

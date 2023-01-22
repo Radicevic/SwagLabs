@@ -131,6 +131,7 @@ public class SwagLabsLoginTest extends SwagLabsBaseTest {
     }
     @AfterMethod
     public void tearDown(){
+        driver.manage().deleteAllCookies();
         driver.quit();
     }
 

@@ -90,9 +90,9 @@ public class SwagLabsSuClickableItemTest extends SwagLabsBaseTest {
         Assert.assertTrue(swagLabsItemsPage.AddButton.isDisplayed());
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        driver.manage().deleteAllCookies();
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown(){
+        driver.manage().deleteAllCookies();
+        driver.quit();
+    }
 }
