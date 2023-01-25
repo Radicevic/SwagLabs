@@ -1,10 +1,7 @@
 package SwagLabs.SwagLabsTests;
 
 import SwagLabs.SwagLabsBase.SwagLabsBaseTest;
-import SwagLabs.SwagLabsPages.SwagLabsItemsPage;
-import SwagLabs.SwagLabsPages.SwagLabsShoppingCartPage;
-import SwagLabs.SwagLabsPages.SwagLabsMenuElementsPage;
-import SwagLabs.SwagLabsPages.SwagLabsLoginPage;
+import SwagLabs.SwagLabsPages.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -26,6 +23,7 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         swagLabsLoginPage = new SwagLabsLoginPage();
         swagLabsMenuElementsPage = new SwagLabsMenuElementsPage();
         swagLabsShoppingCartPage = new SwagLabsShoppingCartPage();
+        swagLabsSortDropDownList = new SwagLabsSortDropDownList();
     }
 
     @Test(priority = 10)
@@ -108,9 +106,19 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
     }
 
-    @AfterMethod
-    public void tearDown(){
-        driver.manage().deleteAllCookies();
-        driver.quit();
+    @Test (priority = 60)
+    public void sortDropDownList (){
+        String validUsername = excelReader.getStringData("Login", 1 , 0);
+        String validPassword = excelReader.getStringData("Login", 1 , 1);
+        swagLabsLoginPage.tryLogin(validUsername, validPassword);
+
+//        dropDownSelectByText(swagLabsSortDropDownList.SortDropDownList, "Name (Z to A)");
+        dropDownSelectByIndex(swagLabsSortDropDownList.SortDropDownList, 2);
     }
+
+//    @AfterMethod
+//    public void tearDown(){
+//        driver.manage().deleteAllCookies();
+//        driver.quit();
+//    }
 }

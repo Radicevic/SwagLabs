@@ -37,10 +37,10 @@ public class SwagLabsSuRemoveItemFromCart extends SwagLabsBaseTest {
         Assert.assertEquals(swagLabsShoppingCartPage.getNumberOfItemSInCart(), ""); // Check if cart is empty
     }
 
-//    @AfterMethod
-//    public void tearDown (){
-//        driver.manage().deleteAllCookies();
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown (){
+        driver.manage().deleteAllCookies();
+        driver.quit();
+    }
 
 }
