@@ -2,6 +2,7 @@ package SwagLabs.SwagLabsBase;
 
 import SwagLabs.SwagLabsPages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +41,9 @@ public class SwagLabsBaseTest {
         loginPageUrl = excelReader.getStringData("URL", 1,0);
     }
 
+    public void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
     public void dropDownSelectByValue (WebElement element, String value) {
         Select select = new Select(element);

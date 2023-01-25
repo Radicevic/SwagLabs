@@ -113,12 +113,12 @@ public class SwagLabsSUMenuElementsTest extends SwagLabsBaseTest {
         swagLabsLoginPage.tryLogin(validUsername, validPassword);
 
 //        dropDownSelectByText(swagLabsSortDropDownList.SortDropDownList, "Name (Z to A)");
-        dropDownSelectByIndex(swagLabsSortDropDownList.SortDropDownList, 2);
+        dropDownSelectByIndex(swagLabsSortDropDownList.SortDropDownList, 1);   //Isto radi kao i metoda iznad
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        driver.manage().deleteAllCookies();
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown(){
+        driver.manage().deleteAllCookies();
+        driver.quit();
+    }
 }
